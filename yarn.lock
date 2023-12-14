@@ -90,6 +90,7 @@ __metadata:
   dependencies:
     "@napi-rs/cli": "npm:^2.17.0"
     ava: "npm:^5.1.1"
+    prettier: "npm:^3.1.1"
   languageName: unknown
   linkType: soft
 
@@ -1422,6 +1423,15 @@ __metadata:
   dependencies:
     irregular-plurals: "npm:^3.3.0"
   checksum: 26bb622b8545fcfd47bbf56fbcca66c08693708a232e403fa3589e00003c56c14231ac57c7588ca5db83ef4be1f61383402c4ea954000768f779f8aef6eb6da8
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "prettier@npm:3.1.1"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: facc944ba20e194ff4db765e830ffbcb642803381f0d2033ed397e79904fa4ccc877dc25ad68f42d36985c01d051c990ca1b905fb83d2d7d65fe69e4386fa1a3
   languageName: node
   linkType: hard
 
