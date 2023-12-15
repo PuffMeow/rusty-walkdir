@@ -22,21 +22,18 @@
   "license": "MIT",
   "devDependencies": {
     "@napi-rs/cli": "^2.17.0",
-    "ava": "^5.1.1",
-    "prettier": "^3.1.1"
-  },
-  "ava": {
-    "timeout": "3m"
+    "prettier": "^3.1.1",
+    "vitest": "^1.0.4"
   },
   "engines": {
     "node": ">= 10"
   },
   "scripts": {
     "artifacts": "napi artifacts",
-    "build": "napi build --platform --release",
+    "build": "napi build --platform --release --js binding.js",
     "build:debug": "napi build --platform",
     "prepublishOnly": "napi prepublish -t npm",
-    "test": "ava",
+    "test": "vitest run",
     "universal": "napi universal",
     "version": "napi version"
   },
