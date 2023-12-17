@@ -13,6 +13,13 @@ use walkdir::WalkDir;
 mod config;
 mod serialize;
 
+#[cfg(all(
+  not(all(target_os = "linux", target_env = "musl", target_arch = "aarch64")),
+  not(debug_assertions)
+))]
+#[global_allocator]
+static ALLOC: mimalloc_rust::GlobalMiMalloc = mimalloc_rust::GlobalMiMalloc;
+
 #[napi(ts_args_type = "entry: string, callback: (path: string) => void")]
 pub fn walkdir<T>(entry: String, callback: T)
 where
@@ -23,12 +30,11 @@ where
   }
 }
 
-pub fn inner_walkdir<P, T: Fn(String) -> napi::Result<()>>(entry: P, callback: T) -> Result<()>
+pub fn inner_walkdir<T: Fn(String) -> napi::Result<()>>(entrance: String, callback: T) -> Result<()>
 where
-  P: AsRef<Path>,
   T: Fn(String) -> napi::Result<()>,
 {
-  for entry in WalkDir::new(entry) {
+  for entry in WalkDir::new(&entrance) {
     let path = String::from(entry?.path().to_string_lossy());
     let _ = callback(path);
   }
@@ -49,16 +55,15 @@ where
   }
 }
 
-pub fn inner_walkdir_with_config<P, T: Fn(String) -> napi::Result<()>>(
-  entry: P,
+pub fn inner_walkdir_with_config<T: Fn(String) -> napi::Result<()>>(
+  entrance: String,
   config: Config,
   callback: T,
 ) -> Result<()>
 where
-  P: AsRef<Path>,
   T: Fn(String) -> napi::Result<()>,
 {
-  for entry in WalkDir::new(entry)
+  for entry in WalkDir::new(&entrance)
     .follow_links(config.follow_symlinks.unwrap_or_else(|| FOLLOW_SYMLINKS))
     .min_depth(config.min_depth.unwrap_or_else(|| MIN_DEPTH) as usize)
     .max_depth(config.max_depth.unwrap_or_else(|| MAX_DEPTH) as usize)

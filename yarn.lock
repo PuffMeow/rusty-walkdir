@@ -233,7 +233,9 @@ __metadata:
   dependencies:
     "@napi-rs/cli": "npm:^2.17.0"
     prettier: "npm:^3.1.1"
+    tinybench: "npm:^2.5.1"
     vitest: "npm:^1.0.4"
+    walkdir: "npm:^0.4.1"
   languageName: unknown
   linkType: soft
 
@@ -1741,6 +1743,13 @@ __metadata:
   bin:
     vitest: vitest.mjs
   checksum: 401cd3f7bc716269ed2e4d6304b3377a3957370f9ca1565d0fb328b3eb0017ba627e0357ccf7bf29126750ef312cc9e5319af8b5cfa87c3f746732480bebb813
+  languageName: node
+  linkType: hard
+
+"walkdir@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "walkdir@npm:0.4.1"
+  checksum: 88e635aa9303e9196e4dc15013d2bd4afca4c8c8b4bb27722ca042bad213bb882d3b9141b3b0cca6bfb274f7889b30cf58d6374844094abec0016f335c5414dc
   languageName: node
   linkType: hard
 
