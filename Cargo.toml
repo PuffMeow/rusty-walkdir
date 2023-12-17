@@ -11,6 +11,8 @@ anyhow = "1.0.75"
 # Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
 napi = {version = "2.12.2", default-features = false, features = ["napi4"]}
 napi-derive = "2.12.2"
+serde = {version = "1", features = ["derive"]}
+serde_json = {version = "1"}
 walkdir = "2"
 
 [build-dependencies]

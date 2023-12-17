@@ -281,6 +281,7 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { walkdir } = nativeBinding
+const { walkdir, walkdirWithConfig } = nativeBinding
 
 module.exports.walkdir = walkdir
+module.exports.walkdirWithConfig = walkdirWithConfig

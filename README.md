@@ -26,7 +26,15 @@ walkdir('node_modules', (path) => {
   console.log(path);
 });
 
-walkdir('../', (path) => {
+walkdir('../', { followSymlinks: true }, (path) => {
   console.log(path);
 });
 ```
+
+## Config
+
+| property       | default  | required | description               |
+| -------------- | -------- | -------- | ------------------------- |
+| followSymlinks | false    | ×        | follow symlinks           |
+| maxDepth       | 2^32 - 1 | x        | maximum depth to traverse |
+| minDepth       | 0        | x        | minimum depth             |
