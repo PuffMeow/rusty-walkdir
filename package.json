@@ -1,6 +1,6 @@
 {
   "name": "@puffmeow/rusty-walkdir",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "types": "index.d.ts",
   "napi": {
@@ -39,6 +39,6 @@
   },
   "packageManager": "yarn@4.0.2",
   "repository": {
-    "url": "https://github.com/PuffMeow/rusty-schema2ts"
+    "url": "https://github.com/PuffMeow/rusty-walkdir"
   }
 }
